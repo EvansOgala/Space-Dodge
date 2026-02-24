@@ -36,11 +36,5 @@ flatpak run org.evans.SpaceDodge
 
 * Desktop component metadata is defined in the AppStream XML descriptor.
 
-### License
-
-* Source code: MIT License
-* Metadata: CC0-1.0
 
 ---
-
-Generated from project component metadata XML.
