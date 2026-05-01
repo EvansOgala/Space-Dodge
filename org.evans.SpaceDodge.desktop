@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Space Dodge
+Comment=Fast-paced space survival game
+Exec=space-dodge
+Icon=org.evans.SpaceDodge
+Terminal=false
+Categories=Game;ArcadeGame;
+StartupNotify=true

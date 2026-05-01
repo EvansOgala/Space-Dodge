@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+
+if [ -f /app/games_final.py ]; then
+    exec python3 /app/games_final.py
+fi
+
+if [ -f /usr/lib/SpaceDodge/games_final.py ]; then
+    exec python3 /usr/lib/SpaceDodge/games_final.py
+fi
+
+SCRIPT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+exec python3 "$SCRIPT_DIR/games_final.py"

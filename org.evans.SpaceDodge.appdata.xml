@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>org.evans.SpaceDodge</id>
+  <name>Space Dodge</name>
+  <summary>Fast-paced space survival game</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+  <launchable type="desktop-id">org.evans.SpaceDodge.desktop</launchable>
+  <description>
+    <p>Dodge falling stars, survive escalating waves, and bring down boss ships every five levels.</p>
+  </description>
+  <categories>
+    <category>Game</category>
+    <category>ArcadeGame</category>
+  </categories>
+</component>

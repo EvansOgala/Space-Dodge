@@ -23,7 +23,7 @@ Space Dodge is a fast-paced space survival game where players dodge falling star
 If using Flatpak:
 
 ```bash
-flatpak-builder build-dir org.evans.SpaceDodge.yaml --force-clean
+flatpak-builder build-dir manifest.json --force-clean
 ```
 
 ### Running
@@ -32,9 +32,53 @@ flatpak-builder build-dir org.evans.SpaceDodge.yaml --force-clean
 flatpak run org.evans.SpaceDodge
 ```
 
+For a local checkout:
+
+```bash
+python3 games_final.py
+```
+
+### AUR Packaging
+
+This repo includes an AUR-ready `PKGBUILD` for version `1.0.2`.
+
+Before publishing, create and push the matching upstream git tag:
+
+```bash
+git tag -a v1.0.2 -m "Space Dodge 1.0.2"
+git push origin v1.0.2
+```
+
+Then test the package locally:
+
+```bash
+makepkg -si
+```
+
+If the build works, refresh `.SRCINFO`:
+
+```bash
+makepkg --printsrcinfo > .SRCINFO
+```
+
+To publish on AUR:
+
+```bash
+git clone ssh://aur@aur.archlinux.org/space-dodge.git aur-space-dodge
+cp PKGBUILD .SRCINFO aur-space-dodge/
+cd aur-space-dodge
+git add PKGBUILD .SRCINFO
+git commit -m "Initial release 1.0.2"
+git push
+```
+
+If this is an update instead of a first upload, use the same AUR repo checkout and commit the new `PKGBUILD` and `.SRCINFO` there.
+
 ### Files
 
-* Desktop component metadata is defined in the AppStream XML descriptor.
+* `games_final.py` contains the Pygame game logic.
+* `space-dodge` is the launcher script used by Flatpak.
+* Desktop metadata is defined in `org.evans.SpaceDodge.desktop` and `org.evans.SpaceDodge.appdata.xml`.
 
 
 ---

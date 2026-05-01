@@ -2,9 +2,7 @@
   "id" : "org.evans.SpaceDodge",
   "runtime" : "org.freedesktop.Platform",
   "runtime-version" : "23.08",
-  "runtime-commit" : "065c61a337f78034498ad18e2707dacb6852823b150488b9f5c95e1548f70ab5",
   "sdk" : "org.freedesktop.Sdk",
-  "sdk-commit" : "f7bd662b000ec1a857b81d8fc158295493cc79b7286bae2c99ee357ab7ef17db",
   "command" : "space-dodge",
   "modules" : [
     {
@@ -31,14 +29,16 @@
         }
       ],
       "build-commands" : [
-        "install -D games_final.py /app/games_final.py",
-        "install -D space-dodge /app/bin/space-dodge",
-        "install -D *.jpg /app/",
-        "install -D *.mp3 /app/",
-        "install -D scores.txt /app/scores.txt",
-        "install -D org.evans.SpaceDodge.desktop /app/share/applications/org.evans.SpaceDodge.desktop",
-        "install -D org.evans.SpaceDodge.appdata.xml /app/share/metainfo/org.evans.SpaceDodge.appdata.xml",
-        "install -D org.evans.SpaceDodge.png /app/share/icons/hicolor/128x128/apps/org.evans.SpaceDodge.png"
+        "install -Dm755 space-dodge /app/bin/space-dodge",
+        "install -Dm644 games_final.py /app/games_final.py",
+        "install -Dm644 scores.txt /app/scores.txt",
+        "mkdir -p /app/assets/backgrounds /app/assets/music",
+        "cp -r *.jpg /app/assets/backgrounds/",
+        "install -Dm644 main.png /app/main.png",
+        "cp -r *.mp3 /app/assets/music/",
+        "install -Dm644 org.evans.SpaceDodge.desktop /app/share/applications/org.evans.SpaceDodge.desktop",
+        "install -Dm644 org.evans.SpaceDodge.appdata.xml /app/share/metainfo/org.evans.SpaceDodge.appdata.xml",
+        "install -Dm644 org.evans.SpaceDodge.svg /app/share/icons/hicolor/scalable/apps/org.evans.SpaceDodge.svg"
       ]
     }
   ],
