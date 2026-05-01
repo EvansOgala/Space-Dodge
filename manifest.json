@@ -1,0 +1,53 @@
+{
+  "id" : "org.evans.SpaceDodge",
+  "runtime" : "org.freedesktop.Platform",
+  "runtime-version" : "23.08",
+  "runtime-commit" : "065c61a337f78034498ad18e2707dacb6852823b150488b9f5c95e1548f70ab5",
+  "sdk" : "org.freedesktop.Sdk",
+  "sdk-commit" : "f7bd662b000ec1a857b81d8fc158295493cc79b7286bae2c99ee357ab7ef17db",
+  "command" : "space-dodge",
+  "modules" : [
+    {
+      "name" : "python3-pygame",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "url" : "https://files.pythonhosted.org/packages/source/p/pygame/pygame-2.5.2.tar.gz",
+          "sha256" : "c1b89eb5d539e7ac5cf75513125fb5f2f0a2d918b1fd6e981f23bf0ac1b1c24a",
+          "type" : "archive"
+        }
+      ],
+      "build-commands" : [
+        "pip3 install --no-index --prefix=/app ."
+      ]
+    },
+    {
+      "name" : "space-dodge",
+      "buildsystem" : "simple",
+      "sources" : [
+        {
+          "path" : ".",
+          "type" : "dir"
+        }
+      ],
+      "build-commands" : [
+        "install -D games_final.py /app/games_final.py",
+        "install -D space-dodge /app/bin/space-dodge",
+        "install -D *.jpg /app/",
+        "install -D *.mp3 /app/",
+        "install -D scores.txt /app/scores.txt",
+        "install -D org.evans.SpaceDodge.desktop /app/share/applications/org.evans.SpaceDodge.desktop",
+        "install -D org.evans.SpaceDodge.appdata.xml /app/share/metainfo/org.evans.SpaceDodge.appdata.xml",
+        "install -D org.evans.SpaceDodge.png /app/share/icons/hicolor/128x128/apps/org.evans.SpaceDodge.png"
+      ]
+    }
+  ],
+  "finish-args" : [
+    "--share=network",
+    "--socket=x11",
+    "--socket=wayland",
+    "--socket=pulseaudio",
+    "--device=dri"
+  ],
+  "source-date-epoch" : 1771936137
+}
