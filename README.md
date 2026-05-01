@@ -42,12 +42,7 @@ python3 games_final.py
 
 This repo includes an AUR-ready `PKGBUILD` for version `1.0.2`.
 
-Before publishing, create and push the matching upstream git tag:
-
-```bash
-git tag -a v1.0.2 -m "Space Dodge 1.0.2"
-git push origin v1.0.2
-```
+The package now clones the full GitHub repository instead of a pinned release tag. That is convenient, but it also means the package is not fully reproducible unless you manually keep `pkgver` aligned with the repo state you want users to build.
 
 Then test the package locally:
 
@@ -72,7 +67,7 @@ git commit -m "Initial release 1.0.2"
 git push
 ```
 
-If this is an update instead of a first upload, use the same AUR repo checkout and commit the new `PKGBUILD` and `.SRCINFO` there.
+If this is an update instead of a first upload, use the same AUR repo checkout and commit the new `PKGBUILD` and `.SRCINFO` there. When the upstream repo changes, remember to update `pkgver` manually if you want the AUR metadata to match what users are actually building.
 
 ### Files
 
