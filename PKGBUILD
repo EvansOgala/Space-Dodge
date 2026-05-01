@@ -7,7 +7,6 @@ url="https://github.com/EvansOgala/Space-Dodge"
 license=('MIT')
 depends=('python' 'python-pygame')
 makedepends=('git')
-source=("git+${url}.git#tag=v${pkgver}")
 source=("git+${url}.git")
 sha256sums=('SKIP')
 
